@@ -1,0 +1,53 @@
+.basic {
+  appearance: none;
+  font-size: 1em;
+  width: 3em;
+  aspect-ratio: 2;
+  border: 1px solid;
+  border-radius: 2em;
+  background: #022959;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    background: white;
+    transition: left 0.5s;
+  }
+
+  &:checked {
+    &::before {
+      left: 75%;
+    }
+  }
+
+  &[disabled] {
+    color: #aaa;
+  }
+}
+
+@media print {
+  .basic {
+    &,
+    &::before {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .basic {
+    &::before {
+      transition-duration: 0s;
+    }
+  }
+}
