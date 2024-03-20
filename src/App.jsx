@@ -22,7 +22,9 @@ function App() {
     { componentName: <FinishUp /> },
   ];
   return (
-    <FormContext.Provider value={{ payment, setPayment, selectPlan, setSelectPlan }}>
+    <FormContext.Provider
+      value={{ payment, setPayment, selectPlan, setSelectPlan, pickAddOns, setPickAddOns }}
+    >
       <div className="flex flex-col justify-center items-center max-w-[375px] p-4 bg-top bg-no-repeat bg-[#F8F9FF] bg-[url('../src/assets/bg-sidebar-mobile.svg')]">
         {!isConfirmed ? (
           <>

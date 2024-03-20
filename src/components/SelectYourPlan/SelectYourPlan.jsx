@@ -4,7 +4,9 @@ import { FormContext } from "../../providers/form.providers";
 import "../SelectYourPlan/selectYourPlan.css";
 
 const SelectYourPlan = () => {
-  const { payment, setPayment, setSelectPlan } = useContext(FormContext);
+  const { payment, setPayment, selectPlan, setSelectPlan } = useContext(FormContext);
+  console.log(selectPlan);
+  console.log(selectYourPlanDb);
 
   function changePayment() {
     setPayment(
@@ -14,10 +16,15 @@ const SelectYourPlan = () => {
 
   function handleClick(plan) {
     setSelectPlan(
-      selectYourPlanDb.map((planDb) =>
-        plan === planDb.plan ? (planDb.active = true) : (planDb.active = false)
+      selectPlan.map((planDb) =>
+        plan === planDb.plan ? { ...planDb, active: true } : { ...planDb, active: false }
       )
     );
+    const aaa = selectPlan.map((planDb) =>
+      plan === planDb.plan ? (planDb.active = true) : (planDb.active = false)
+    );
+    console.log("aaa", aaa);
+    console.log("selectPlan", selectPlan);
   }
 
   return (
@@ -28,7 +35,7 @@ const SelectYourPlan = () => {
     //       You have the option of monthly or yearly billing.
     //     </p>
     <>
-      {selectYourPlanDb.map((plan, index) => (
+      {selectPlan.map((plan, index) => (
         <div
           key={index}
           className={`flex justify-start items-start w-full p-4 gap-4 rounded-lg border-solid border-2 cursor-pointer

@@ -1,6 +1,3 @@
-//import { arcade } from "../assets/icon-arcade.svg";
-// import { advanced } from "../assets/icon-advanced.svg";
-//import { pro } from "../assets/icon-pro.svg";
 export const personalInfoDb = [
   {
     name: "fullName",
