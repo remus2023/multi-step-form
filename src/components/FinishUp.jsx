@@ -1,9 +1,7 @@
 import { useContext } from "react";
-import { selectYourPlanDb, pickAddOnsDb } from "../config/config";
 import { FormContext } from "../providers/form.providers";
 const FinishUp = () => {
   const { payment, pickAddOns, selectPlan } = useContext(FormContext);
-  console.log(selectYourPlanDb);
   return (
     <>
       {selectPlan

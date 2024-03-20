@@ -6,6 +6,7 @@ import SelectYourPlan from "./components/SelectYourPlan/SelectYourPlan";
 import FinishUp from "./components/FinishUp";
 import { FormContext } from "./providers/form.providers";
 import { personalInfoDb, selectYourPlanDb, pickAddOnsDb, infoStep } from "./config/config";
+import Steps from "./components/Steps";
 import ThankYou from "./components/ThankYou";
 
 function App() {
@@ -23,11 +24,12 @@ function App() {
   ];
   return (
     <FormContext.Provider
-      value={{ payment, setPayment, selectPlan, setSelectPlan, pickAddOns, setPickAddOns }}
+      value={{ payment, setPayment, selectPlan, setSelectPlan, pickAddOns, setPickAddOns, step }}
     >
       <div className="flex flex-col justify-center items-center max-w-[375px] p-4 bg-top bg-no-repeat bg-[#F8F9FF] bg-[url('../src/assets/bg-sidebar-mobile.svg')]">
         {!isConfirmed ? (
           <>
+            <Steps />
             <div className="flex flex-col gap-3 max-w-[343px] min-h-min p-6 rounded-[10px] bg-white">
               <h1 className="font-bold text-2xl">{infoStep[step].nameStep}</h1>
               <p className="font-regular text-base text-[#9699AA]">
